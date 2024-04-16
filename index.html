@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <title>Diffusion Models</title>
-<meta property="og:title" content=Diffusion Model" />
-<meta name="twitter:title" content="Diffusion Model" />
+<meta property="og:title" content=Analysis of GANs" />
+<meta name="twitter:title" content="Analysis of GANs" />
 <meta name="description" content="Your project about your cool topic described right here." />
 <meta property="og:description" content="Your project about your cool topic described right here." />
 <meta name="twitter:description" content="Your project about your cool topic described right here." />
@@ -30,9 +30,9 @@
 <div class="container">
 <div class="row">
 <div class="col justify-content-center text-center">
-<h2>An Analysis of "Erasing Concepts from Diffusion Models"</h2>
+<h2>An Analysis of "GAN Dissection: Visualizing and Understanding Generative Adversarial Networks"</h2>
 <p> By: Riya Gurnani and Xinyu Wu
-<p> Paper Link: <a href = "https://openaccess.thecvf.com/content/ICCV2023/papers/Gandikota_Erasing_Concepts_from_Diffusion_Models_ICCV_2023_paper.pdf">Erasing Concepts from Diffusion Models</a></p>
+<p> Paper Link: <a href = "https://openreview.net/pdf?id=Hyg_X2C5FX">GAN Dissection: Visualizing and Understanding Generative Adversarial Networks</a></p>
 <p> Our Implementation Link: <a href = "https://github.com/rgurn/DS4440_final_project">GitHub (DS4440 Final Project)</a></p>
 </div>
 </div>
@@ -40,7 +40,7 @@
 <div class="col">
 
 <h2>Introduction</h2>
- <p> Text Here
+ <p> In this project, we delve into generative adversarial networks (GANs) to better visualize and understand them. “GAN Dissection: Visualizing and Understanding Generative Adversarial Networks” by Bau, Strobelt, et al. introduces a framework for visualizing and understanding GANs at multiple levels of abstraction. The paper provides insights into how GANs represent and generate visual context internally which is crucial given their widespread use in real-world applications. We aim to better understand and expand upon the framework from the paper. Gaining deeper insights into these models will allow for improved performance. Our goal is to successfully implement the code from the paper and test the framework on new data to evaluate the behavior of the model across new datasets and layers. This will also provide further insight into their generalization capabilities.
  </p>
 
 <h2>Paper Review</h2>
@@ -48,7 +48,9 @@
  Text Here
  
 <h2>Method</h2>
-describes the technical structure of your method or implementation. This should be brief, no more than one screenful of webpage text.  You may also include an architectural figure in addition to the text.. Include a pointer to the code to your implementation.
+<p>
+ Our first step has been to understand the complex framework detailed in the paper and its provided code. It analyzes how objects are encoded within a GAN generator through dissection and intervention. By intervening in the network and observing the effects on generated images, we gain insights into the causal relationships between units and objects. Our first step was to run the framework code and then we will expand on this by introducing new data and evaluating how the model behaves. We are mainly testing with image generation and content manipulation.
+</p>
 
 <h2>Findings</h2>
 reports your experimental findings. This should include graphs or images that visualize the results that you have obtained. Ideally this will compare your method to some simpler approach.
