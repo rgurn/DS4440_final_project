@@ -46,14 +46,10 @@
 <h2>Paper Review</h2>
 <p>
  While Generative Adversarial Networks (GANs) have shown significant ability to produce realistic images, there is still a gap in understanding how different knowledge and variants affect model performance. Therefore, this paper by Bau et al. looks at the internal representations of GANs and how they are structured, including neurons, objects, and contextual relationships between objects (Bau, Strobelt, et al., 2019). 
-</p>
-<p>
  Objects that are used in this paper include trees, grass, doors, skies, clouds, bricks, and domes. To examine these objects, the paper utilizes representations to denote tensor outputs (r) on each layer of the generator (G) which generates an image (x) through z layers. In relation to units r, the paper understands it in two phases: (1) dissection, (2) intervention. Dissection involves identifying classes that are explicitly represented in r and measuring the relationships between each single unit and their class, c. The latter, intervention, uses the classes found through dissecting r in order to analyze causal relationships between units and object classes by turning on and off various sets of units. 
 </p>
 <p>
  Building on previous literature, the paper uses an intersection-over-union measure that quantitatively measures the spatial agreement between a unit&#39;s threshold featuremap and a concept&#39;s segmentation. Therefore, this metric is able to rank and pair units with the concepts that most closely match. However, outputs generally depend on multiple parts of the representation, and a combination of units must be identified in relation to a specific object. Thus, an ablation and insertion to the decomposed images can help identify the causal relationship between units and classes, or the average causal effect. This effect can be optimized using L2 regularization and stochastic gradient descent to achieve stronger causal effect.
-</p>
-<p>
  The paper has a number of key findings when understanding units between different datasets, layers, and models: (1) individual unit object detectors form, (2) there are interpretable units for different scene categories such as living room and kitchen, (3) different layers have varying interpretable units, and (4) these interpretable units can help differentiate between GAN models. For the purposes of our project, our goal is to identify these interpretable units of objects not tested in this paper, such as windows and chairs, in hopes of replicating similar results. Overall, the paper provides a strong basis to understanding neurons, objects, and their relationships in GAN models by dissecting and intervening with individual layers. 
 </p>
  
