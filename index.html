@@ -65,9 +65,9 @@
 <p>
  Another piece of code from the paper has the functionality to load an image, click and drag on it to select a certain part in order to trigger either an erasing or adding action. Thus, to find the highest activating units for our own objects, we utilized parts of this code and added onto it. We wanted to include a variety of testing so we loaded different GAN generators for the objects. For reference, here is the first five layers of the pretrained GAN model used that is then trained on the different image settings:
 </p>
- <center><img src="images/pretrained_GAN_sample.png" width="300px" height="500px"></center>
+ <center><img src="images/pretrained_GAN_sample.png" width="400px" height="500px"></center>
  <p>
-  For window, we used “church” and “conference room” and for chair, we used “restaurant” and “dining room”. From here, we were able to create a segment of code to randomly choose one of the generated images and used the select feature tool to select that object in the image and display the highest activating units. We created a script to run this for 50 randomly selected images for each object and setting (window in church, window in conference room, chair in restaurant, and chair in dining room). Here is an example of what it looks like to find the selected units where the window is selected in the conference room:
+  For window, we used <q>church</q> and <q>conference room</q> and for chair, we used <q>restaurant</q> and <q>dining room</q>. From here, we were able to create a segment of code to randomly choose one of the generated images and used the select feature tool to select that object in the image and display the highest activating units. We created a script to run this for 50 randomly selected images for each object and setting (window in church, window in conference room, chair in restaurant, and chair in dining room). Here is an example of what it looks like to find the selected units where the window is selected in the conference room:
 </p>
 <center><img src="images/get_units_test.png" width="600px" height="300px"></center>
  <p>
