@@ -82,6 +82,14 @@
  For our first object, windows, adding the object to church images led to varied results. Below is a visualization of before and after we tried to generate window objects on ten different church images. There are a few highlighted sections (in red) in the fourth and sixth images that show a generation. For the other images, we found that trying to generate would sometimes blur parts of the image but not generate a window. In the first, seventh, and ninth images, we noticed slight changes but no objects generated. Rather, we found that for those particular images, if we selected a segment near an existing window, it would slightly expand it and make the window larger.
 </p>
 <center><img src="images/window_church.png" width="900px" height="350px"></center>
+ <p>
+  Overall, our chosen units did not generate what we had aimed for. We believe that this is largely in part to the fact that there are many small windows on churches that are difficult to recognize, even for our human eyes, so it can be hard for the model to distinguish these areas. In order to further our understanding of the performance of the model, we also printed out unit masks from the top activating images for the highest activating unit for windows in the church images, shown below. The visualization shows some success for unit 221. More unit testing can be found in our implementation link:
+ </p>
+ <center><img src="images/window_church_unit.png" width="900px" height="350px"></center>
+ <p>
+  We followed a similar testing process for window objects in the conference room images. We had more success in terms of generating windows in this context, likely due to the larger window sizes in these images as well as the greater contrast in brightness between the windows and the indoor conference rooms. In the visualization below, there are ten images with the before and after for when we selected different parts of the image. There are highlighted sections (in red) for the first four images as well as the last two images. In those tests, we saw object generation in the form of a brighter light forming as a window object or a white canvas. In the other images, we saw small changes but no significant object generation.
+ </p>
+ <center><img src="images/window_conference.png" width="900px" height="350px"></center>
  
 <h2>Conclusion</h2>
 <p>
