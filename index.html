@@ -61,7 +61,7 @@
 <p>
  Another piece of code from the paper has the functionality to load an image, click and drag on it to select a certain part in order to trigger either an erasing or adding action. Thus, to find the highest activating units for our own objects, we utilized parts of this code and added onto it. We wanted to include a variety of testing so we loaded different GAN generators for the objects. For reference, here is the first five layers of the pretrained GAN model used that is then trained on the different image settings:
 </p>
- <center><img src="images/pretrained_GAN_sample.png" width="400px" height="500px"></center>
+ <center><img src="images/pretrained_GAN_sample.png" width="450px" height="500px"></center>
  <p>
   For window, we used <q>church</q> and <q>conference room</q> and for chair, we used <q>restaurant</q> and <q>dining room</q>. From here, we were able to create a segment of code to randomly choose one of the generated images and used the select feature tool to select that object in the image and display the highest activating units. We created a script to run this for 50 randomly selected images for each object and setting (window in church, window in conference room, chair in restaurant, and chair in dining room). Here is an example of what it looks like to find the selected units where the window is selected in the conference room:
 </p>
@@ -86,6 +86,32 @@
   We followed a similar testing process for window objects in the conference room images. We had more success in terms of generating windows in this context, likely due to the larger window sizes in these images as well as the greater contrast in brightness between the windows and the indoor conference rooms. In the visualization below, there are ten images with the before and after for when we selected different parts of the image. There are highlighted sections (in red) for the first four images as well as the last two images. In those tests, we saw object generation in the form of a brighter light forming as a window object or a white canvas. In the other images, we saw small changes but no significant object generation.
  </p>
  <center><img src="images/window_conference.png" width="900px" height="350px"></center>
+ <p>
+  This testing process saw more success in generating windows in conference rooms. We believe this is because in conference rooms these are less windows and their surface area is larger so it is easier to recognize. Further, the windows in conference rooms tend to be consistent in their rectangular shape, while church windows are often smaller and more inconsistent in shape. Considering that a number of our generated objects had higher brightness (rather than the full structure of a window), we also believe that the higher contrast in brightness from the sun coming through windows was a key factor associated with the higher activating units and therefore the ability to generate windows in conference rooms. Below is a visualization showing the unit masks from the top activating images for the highest activating unit for window in the conference room images (unit 198):
+ </p>
+ <center><img src="images/window_conference_unit.png" width="900px" height="350px"></center>
+ <p>
+  Following the same procedure as for windows, we ran tests for the generation of chairs for both dining room and restaurant settings. The success rate for generating chairs was lower than for windows, likely due to a number of factors: (1) chairs have more complex shapes, (2) the color and brightness contrast of chairs is lower, and (3) there is more variance in chair designs than window designs. Further, many of the dining room and restaurant photos that we ran the initial unit gathering methodology on were blurry and difficult to distinguish. Therefore, the units chosen were less precise.
+ </p>
+ <p>
+  For the dining room setting, three of ten test images generated something resembling a chair. For each of these (boxed in red below), our methods did not generate a full chair. Rather, it generated parts of chairs, such as legs and chair backs. All other trials failed to generate anything in resemblance of a chair. These results are not surprising considering that chair legs and backs are the most distinguishable features of chairs and most consistent across all types of chairs. 
+ </p>
+ <center><img src="images/chair_dining.png" width="900px" height="350px"></center>
+ <p>
+  Shown below is a visualization of the unit masks from the top activating images for the second highest activating unit for chairs in the dining room images (unit 325). The masks identify a number of chair legs but fail to identify the full chair. This is likely because the legs are more consistently apparent across multiple images.
+ </p>
+ <center><img src="images/chair_dining_unit.png" width="900px" height="350px"></center>
+ <p>
+  Compared to the dining room setting, the restaurant images had worse performance, with only two of ten trials having visible image differences, and none of the trials being able to generate a chair. Both images with noticeable changes altered the material of the floor from carpet and tile to wood. This can be explained by the fact that most restaurant chairs are of wooden materials. However, it did not accomplish our goal of generating a chair by using these most commonly identified activation units.
+ </p>
+ <center><img src="images/chair_restaurant.png" width="900px" height="350px"></center>
+ <p>
+  Below are the unit masks from the top activating images for the second highest activating unit for chairs in the restaurant images (unit 178). The masks select a very wide area of the image, suggesting that it fails to identify the chair. We believe this is largely due to the fact that there is low contrast between the chairs and other parts of each image.
+ </p>
+ <center><img src="images/chair_restaurant_unit.png" width="900px" height="350px"></center>
+ <p>
+  In comparison to the original paper&#39;s use of objects such as trees, we had a more difficult time successfully generating windows and chairs. We believe that this can be attributed to the fact that trees are more homogenous across images, while windows and chairs can vary widely. Windows can be of different shapes, sizes, colors, and brightness levels. Chairs are made of different materials, structures, sizes, colors, and positioning. Further, both windows and chairs will look very different from different angles, while trees are generally symmetrical and look the same from all angles. Overall, our chosen activation units had higher success rates for windows relative to chairs, but did not perform as well in comparison to the paper&#39;s results. 
+ </p>
  
 <h2>Conclusion</h2>
 <p>
