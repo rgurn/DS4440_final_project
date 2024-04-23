@@ -58,19 +58,21 @@
 </p>
  
 <h2>Method</h2>
-<p>
 <p> Our Implementation Link: <a href = "https://colab.research.google.com/drive/10UPKkcwzi6PX9RKPq7oID2sOQPjAoJti?usp=sharing">DS4440 Final Project</a></p>
+<p>
+ In order to achieve our goal of testing different objects, our first step was to understand the complex framework detailed in the paper and its provided code. The code from the paper analyzes how objects are encoded within a GAN generator through dissection and intervention. By intervening in the network and observing the effects on generated images, we gain insights into the causal relationships between units and objects. Due to more limited GPU power and some dependency issues, we did not use the entire code from the paper github. Instead, we examined how they created their interactive demo and tutorials. These pieces of code included the highest activated units for the trees. However, for the purposes of our project, we needed to find the highest activating units for our chosen objects—windows and chairs.
 </p>
 <p>
- Our first step was to understand the complex framework detailed in the paper and its provided code. It analyzes how objects are encoded within a GAN generator through dissection and intervention. By intervening in the network and observing the effects on generated images, we gain insights into the causal relationships between units and objects. Due to more limited GPU power and some dependency issues, we did not use the entire code from the paper github. Instead, we examined how they created their interactive demo and tutorials to begin. They included the highest activated units for the trees but we needed to find them for our chosen objects of window and chair.
+ Another piece of code from the paper has the functionality to load an image, click and drag on it to select a certain part in order to trigger either an erasing or adding action. Thus, to find the highest activating units for our own objects, we utilized parts of this code and added onto it. We wanted to include a variety of testing so we loaded different GAN generators for the objects. For reference, here is the first five layers of the pretrained GAN model used that is then trained on the different image settings:
 </p>
-<p>
- Code from the paper creates the functionality to load an image, click and drag on it to select a certain part which would trigger some action. So, to find the highest activating units for our chosen objects, we utilized parts of this code and added onto it. We wanted to include a variety of testing so we loaded different GAN generators for the objects. For window, we used church and conferenceroom. For chair, we used restaurant and diningroom. Then we created a segment of code to choose one of the generated images and used the select feature to select that object in the image and display the highest activating units. We created a script so we ran this for 50 images for each (window in church, window in conferenceroom, chair in restaurant, and chair in diningroom). Here is an example of what is looks like to find the selected units where the window is selected in the conference room:
+ <center><img src="images/pretrained_GAN_sample.png" width="300px" height="500px"></center>
+ <p>
+  For window, we used “church” and “conference room” and for chair, we used “restaurant” and “dining room”. From here, we were able to create a segment of code to randomly choose one of the generated images and used the select feature tool to select that object in the image and display the highest activating units. We created a script to run this for 50 randomly selected images for each object and setting (window in church, window in conference room, chair in restaurant, and chair in dining room). Here is an example of what it looks like to find the selected units where the window is selected in the conference room:
 </p>
 <center><img src="images/get_units_test.png" width="600px" height="300px"></center>
-<p>
- We saved all of those selected units and images numbers to 4 files for each. Then we did some analysis on it to find the ten most occurring units for each of the four files. From here, we had four sets of units for our two objects. We then ran testing to see how well those units were selecting and if they could visualize the selected objects in new images and even generate the object when we run the select tool over a part of the image. 
-</p>
+ <p>
+  We saved all of those selected units and images numbers to four files corresponding to each object-setting combination. Then, we did some analysis on this data to find the ten most commonly occurring units for each of the four object-setting combinations. Therefore, we had four sets of units across the two objects. Using these most commonly activated units, we then ran testing to see how well those units were selecting the objects and if they could visualize the selected objects in new images and even generate the object when we run the select tool over a part of the image. 
+ </p>
 
 <h2>Findings</h2>
 reports your experimental findings. This should include graphs or images that visualize the results that you have obtained. Ideally this will compare your method to some simpler approach.
